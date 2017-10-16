@@ -1,0 +1,17 @@
+
+
+.header {
+	background-color: #00802F;
+	text-align: center;
+	margin: auto;
+	vertical-align: center;
+}
+
+
+.logo {
+	position: relative;
+    	margin-left: auto;
+    	z-index: 100;
+    	vertical-align: middle;
+}
+
