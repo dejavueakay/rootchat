@@ -1,6 +1,6 @@
-# ChatApp
+# rootchat
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
+This project was generated and developed with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5, [Bootstrap](https://github.com/twbs/bootstrap) and [socketio](https://github.com/socketio/socket.io).
 
 ## Development server
 
