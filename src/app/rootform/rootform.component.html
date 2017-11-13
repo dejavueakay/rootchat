@@ -1,25 +1,10 @@
-
-{{ currentBook }}
-
-
-
 <div class="container">
-  <h1>Book Form</h1>
   <form>
     <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title">
+      <label for="title"> <h3>rootchat</h3></label>
+      <textarea type="text" rows="2" placeholder="Hier schreiben" (keyup.enter)="addMessage(chatMessage.message)" class="form-control" id="message" required [(ngModel)]="chatMessage.message" name="message"> </textarea>
     </div>
-    <div class="form-group">
-      <label for="author">Author</label>
-      <input type="text" class="form-control" id="author" required [(ngModel)]="model.author" name="author">
-    </div>
-    <div class="form-group">
-      <label for="url">URL</label>
-      <input type="text" class="form-control" id="url" [(ngModel)]="model.url" name="url">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button (click)="addMessage(chatMessage.message)" class="btn btn-default">Abschicken</button>
    </form>
  </div>
-
 

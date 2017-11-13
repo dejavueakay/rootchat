@@ -1,8 +1,5 @@
-export class Book {
+export class chatMessage {
  constructor(
-   public id: number,
-   public title: string,
-   public author: string,
-   public url?: string
+   public message?: string
  ) { }
  }
