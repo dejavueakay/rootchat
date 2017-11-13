@@ -1,0 +1,19 @@
+import { Component, OnInit } from '@angular/core';
+
+import { Book } from './model.ts';
+
+@Component({
+  selector: 'app-rootform',
+  templateUrl: './rootform.component.html',
+  styleUrls: ['./rootform.component.css']
+})
+export class RootformComponent implements OnInit {
+
+
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
