@@ -1,10 +1,18 @@
-<div class="container">
-  <form>
-    <div class="form-group">
-      <label for="title"> <h3>rootchat</h3></label>
-      <textarea type="text" rows="2" placeholder="Hier schreiben" (keyup.enter)="addMessage(chatMessage.message)" class="form-control" id="message" required [(ngModel)]="chatMessage.message" name="message"> </textarea>
-    </div>
-    <button (click)="addMessage(chatMessage.message)" class="btn btn-default">Abschicken</button>
-   </form>
- </div>
+	<div class="container">
+  		<h3>Nachrichten</h3>
+  		<textarea rows="10" class="form-control" readonly>{{messageHistory}}</textarea>
+	</div>
+	
 
+ 
+
+        <div class="container">
+                <form>
+                <div class="form-group">
+                        <p><p><h3>Eingabefeld</h3>
+                        <textarea type="text" rows="2" placeholder="Hier schreiben" (keyup.enter)="addMessage(chatMessage.message)" class="form-control" id="message" required [(ngModel)]="chatMessage.message" name="message"> </textarea>
+                </div>
+                <button (click)="addMessage(chatMessage.message)" class="btn btn-default">Abschicken</button>
+                </form>
+
+	</div>

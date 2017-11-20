@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 import { chatMessage } from './model';
 
@@ -10,20 +10,22 @@ import { chatMessage } from './model';
 
 export class RootformComponent implements OnInit {
 
-	chatMessage = new chatMessage('');;
+	chatMessage = new chatMessage('');
+	messageHistory: string = '';
+
+
 
   constructor() { }
 
   ngOnInit() {
   }
 
-
-
 public addMessage(message: string): void {
-	alert(message);
-
-	this.chatMessage.message = '';
+	
+	this.messageHistory += message + '\n'; 		// Nachricht zur History hinzufuegen
+	this.chatMessage.message = ''; 			// Eingabefeld resetten
 }
+
 
 
 }
