@@ -12,7 +12,7 @@ export class RootformComponent implements OnInit {
 
 	chatMessage = new chatMessage('');
 	messageHistory: string = '';
-
+	nickname: string = '';
 
 
   constructor() { }
@@ -21,11 +21,29 @@ export class RootformComponent implements OnInit {
   }
 
 public addMessage(message: string): void {
+
+if (this.nickname == '') {
+alert('Gib einen Nickname ein!');
 	
-	this.messageHistory += message + '\n'; 		// Nachricht zur History hinzufuegen
-	this.chatMessage.message = ''; 			// Eingabefeld resetten
+} else {
+
+	if (this.chatMessage.message == '') {
+	alert('Gib eine Nachricht ein!');
+	
+	} else {
+
+	this.messageHistory += this.nickname + ': ' + message + '\n'; 		// Nachricht zur History hinzufuegen
+	this.chatMessage.message = ''; 						// Eingabefeld resetten
+
+
+}
+}
 }
 
+public setNickname(nick: string): void {
+
+	this.nickname = nick;
+}
 
 
 }
