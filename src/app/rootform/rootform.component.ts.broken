@@ -1,0 +1,65 @@
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+
+import { chatMessage } from './model';
+
+import * as io from 'socket.io-client';
+
+@Component({
+  selector: 'app-rootform',
+  templateUrl: './rootform.component.html',
+  styleUrls: ['./rootform.component.css']
+})
+
+export class RootformComponent implements OnInit {
+
+	chatMessage = new chatMessage('');
+	messageHistory: string = '';
+	nickname: string = '';
+
+	var currentdate = new Date(); 
+// var datetime = "Last Sync: " + currentdate.getDate() + "/" + (currentdate.getMonth()+1)  + "/" + currentdate.getFullYear() + " @ " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+
+
+
+  constructor() { 
+
+// var socket = io.connect('http://localhost:8080');
+
+}
+
+  ngOnInit() {
+  }
+
+public addMessage(message: string): void {
+
+if (this.nickname == '') {
+alert('Gib einen Nickname ein!');
+	
+} else {
+
+	if (this.chatMessage.message == '') {
+	alert('Gib eine Nachricht ein!');
+	
+	} else {
+
+	this.messageHistory += this.nickname + ': ' + message + '\n'; 		// Nachricht zur History hinzufuegen
+	this.chatMessage.message = ''; 						// Eingabefeld resetten
+
+
+}
+}
+}
+
+public setNickname(nick: string): void {
+
+	this.nickname = nick;
+}
+
+// var socket = io.connect('http://localhost:8080');
+
+
+
+
+}
+
+
