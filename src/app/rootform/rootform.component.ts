@@ -41,7 +41,7 @@ alert('Gib einen Nickname ein!');
 
 		} else {
 
-			this.messageHistory += 'Am ' + new Date().toLocaleDateString() + ' um ' + new Date().toLocaleTimeString() + ' schrieb ' + this.nickname + ': ' + message + '\n'; 		// Nachricht zur History hinzufuegen
+			this.messageHistory += 'Am ' + new Date().toLocaleDateString() + ' um ' + new Date().toLocaleTimeString() + ' schrieb ' + this.nickname + ':\n\n' + message + '\n'; 		// Nachricht zur History hinzufuegen
 			this.chatMessage.message = ''; 											// Eingabefeld resetten
 			this.lastnickname = this.nickname; 										// Damit wir wissen, wer zuletzt geschrieben hat
 
