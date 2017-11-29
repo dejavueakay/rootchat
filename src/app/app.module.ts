@@ -5,6 +5,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
+import { RootformComponent } from './rootform/rootform.component';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+
+import {NgxAutoScroll} from "ngx-auto-scroll/lib/ngx-auto-scroll.directive";
 
 import {
   ReactiveFormsModule,
@@ -14,7 +18,8 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
-import { RootformComponent } from './rootform/rootform.component';
+
+const config: SocketIoConfig = { url: 'http://senntee.ch:8080', options: {} };
 
 
 @NgModule({
@@ -23,12 +28,14 @@ import { RootformComponent } from './rootform/rootform.component';
     HeaderComponent,
     FooterComponent,
     ContentComponent,
-    RootformComponent
+    RootformComponent,
+    NgxAutoScroll
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]

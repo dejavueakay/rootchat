@@ -1,11 +1,13 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { chatMessage } from './model';
+import { TranssocketService } from './transsocket.service';
+
 
 @Component({
   selector: 'app-rootform',
   templateUrl: './rootform.component.html',
-  styleUrls: ['./rootform.component.css']
+  styleUrls: ['./rootform.component.css'],
+  providers: [TranssocketService]
 })
 
 export class RootformComponent implements OnInit {
@@ -13,14 +15,21 @@ export class RootformComponent implements OnInit {
 	chatMessage = new chatMessage('');
 	messageHistory: string = '';
 	nickname: string = '';
-	lastnickname: string = '';
+	formattedmessage: string = '';
+
+constructor(private chatService : TranssocketService) { } 		// Hier wird Socket initiiert
 
 
-  constructor() { }
 
   ngOnInit() {
-}
 
+this.chatService							// Hier lauschen wir auf Nachrichten des Servers
+        .getTrans()
+        .subscribe(msg => {
+          this.messageHistory += msg;
+        });
+
+}
 
 public addMessage(message: string): void {
 
@@ -33,30 +42,16 @@ alert('Gib einen Nickname ein!');
 	alert('Gib eine Nachricht ein!');
 	
 	} else {
-
-		if (this.nickname == this.lastnickname) {
-
-		this.messageHistory += message + '\n';											// Falls wieder derselbe Benutzer schreibt, brauchen wir keinen Timestamp und nickname
-		this.chatMessage.message = '';
-
-		} else {
-
-			this.messageHistory += 'Am ' + new Date().toLocaleDateString() + ' um ' + new Date().toLocaleTimeString() + ' schrieb ' + this.nickname + ':\n\n' + message + '\n'; 		// Nachricht zur History hinzufuegen
-			this.chatMessage.message = ''; 											// Eingabefeld resetten
-			this.lastnickname = this.nickname; 										// Damit wir wissen, wer zuletzt geschrieben hat
-
-
-			}
+					
+		this.formattedmessage = 'Am ' + new Date().toLocaleDateString() + ' um ' + new Date().toLocaleTimeString() + ' schrieb ' + this.nickname + ':\n\n' + message + '\n';	// Nachricht formatieren mit nick und timestamp
+		this.messageHistory += this.formattedmessage;			// Eigene Nachricht zur messageHistory hinzufuegen
+		this.chatService.sendTrans(this.formattedmessage);		// Nachricht an Server schicken
+		this.chatMessage.message = ''; 					// Eingabefeld resetten
+			
 		}
 	}
 }
 
-
-public setNickname(nick: string): void {
-
-	this.nickname = nick;
-	
-	}
 
 
 }

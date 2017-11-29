@@ -1,6 +1,6 @@
 	<div class="container">
   		<h3>Nachrichten</h3>
-  		<textarea rows="10" class="form-control" readonly>{{messageHistory}}</textarea>
+  		<textarea rows="20" class="form-control" readonly ngx-auto-scroll [innerHTML]="messageHistory"></textarea>
 	</div>
 	
 
@@ -11,12 +11,11 @@
                 <div class="form-group">
                         <p><p><h3>Eingabefeld</h3>
 			<textarea type="text" rows="1" placeholder="Dein Nickname" class="form-control" id="nickname" required [(ngModel)]="nickname" name="nick"> </textarea>
-                        <p><p><textarea type="text" rows="2" placeholder="Deine Nachricht" (keyup.enter)="addMessage(chatMessage.message)" class="form-control" id="message" required [(ngModel)]="chatMessage.message" name="message"> </textarea>
+                        <p><p><textarea type="text" rows="2" placeholder="Deine Nachricht" (keyup.enter)="addMessage(chatMessage.message)" class="form-control" ngx-auto-scroll id="message" required [(ngModel)]="chatMessage.message" name="message"> </textarea>
                 </div>
-                <button (click)="addMessage(chatMessage.message)" [disabled]="!nickname" [disabled]="!chatMessage.message" class="btn btn-default">Abschicken</button>
+                <button (click)="addMessage(chatMessage.message)" [disabled]="!chatMessage.message" class="btn btn-default">Abschicken</button>
                 </form>
 
 
 	</div>
-
 
