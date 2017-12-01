@@ -8,7 +8,8 @@ import { ContentComponent } from './content/content.component';
 import { RootformComponent } from './rootform/rootform.component';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 
-import {NgxAutoScroll} from "ngx-auto-scroll/lib/ngx-auto-scroll.directive";
+import {NgxAutoScroll} from 'ngx-auto-scroll/lib/ngx-auto-scroll.directive';
+import { CookieService } from 'ngx-cookie-service';
 
 import {
   ReactiveFormsModule,
@@ -37,7 +38,7 @@ const config: SocketIoConfig = { url: 'http://senntee.ch:8080', options: {} };
     ReactiveFormsModule,
     SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

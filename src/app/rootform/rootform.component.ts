@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { chatMessage } from './model';
 import { TranssocketService } from './transsocket.service';
+import { CookieService } from 'ngx-cookie-service';
+
 
 
 @Component({
@@ -17,7 +19,7 @@ export class RootformComponent implements OnInit {
 	nickname: string = '';
 	formattedmessage: string = '';
 
-constructor(private chatService : TranssocketService) { } 		// Hier wird Socket initiiert
+constructor(private chatService: TranssocketService, private cookieService: CookieService) { } 		// Hier wird Socket initiiert
 
 
 
@@ -28,6 +30,8 @@ this.chatService							// Hier lauschen wir auf Nachrichten des Servers
         .subscribe(msg => {
           this.messageHistory += msg;
         });
+
+this.nickname = this.cookieService.get('nickname');
 
 }
 
@@ -47,6 +51,7 @@ alert('Gib einen Nickname ein!');
 		this.messageHistory += this.formattedmessage;			// Eigene Nachricht zur messageHistory hinzufuegen
 		this.chatService.sendTrans(this.formattedmessage);		// Nachricht an Server schicken
 		this.chatMessage.message = ''; 					// Eingabefeld resetten
+		this.cookieService.set( 'nickname', this.nickname, new Date('12/2/2019 03:05:01 PM GMT-0600'));		// Nickname in einem Cookie abspeichern
 			
 		}
 	}
