@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="col-md-12">  
+      <form #heroForm="ngForm">
+        <div>
+          <br>
+          <div style="font-size: 24px" class="col-md-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+              {{eingabe}}
+            </div>
+              
+             
+          </div>
+          <br><br><br>
+        </div>
+        <div class="col-md-2">
+          <label for="name" style="font-size: 24px">
+            Ihre Eingabe:
+          </label>
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" 
+              required [(ngModel)]="model.name" name="name"
+              #name="ngModel">
+                <div [hidden]="name.valid || name.pristine"
+                  class="alert alert-danger">
+                  Bitte etwas eingeben
+                </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-success" 
+            style="font-size: 14px">
+            Abschicken
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,35 @@
+<div>
+      <!--
+        <div>
+          <h3>Deine Eingabe bitte:</h3>
+      </div>
+    -->
+
+      <textarea [(ngModel)]="chatMessage" (keyup.enter)="addMessage(chatMessage)" class="form-control" rows="2" placeholder="Hier bitte deine Nachricht eingeben"></textarea>
+    <!--
+    <div class="col-md-2">
+      <button (click)="addMessage(chatMessage)" [disabled]="!chatMessage" class="btn btn-primary">Senden</button>
+    </div>
+  -->
+</div>  
+
+
+
+<!--
+<div class="col-lg-6">
+  <div>
+    <h3>
+      Das hast Du eingegeben:
+    </h3>
+  </div>
+  <div>
+    <p>
+      {{chatMessage}}
+    </p>
+
+
+
+  </div>
+</div>
+-->
+  

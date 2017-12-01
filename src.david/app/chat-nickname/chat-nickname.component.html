@@ -1,0 +1,7 @@
+<div>
+  <h3>
+    nickname
+  </h3>
+  <input [(ngModel)]="nickname" type ="text" class="form-control" placeholder="Nickname">
+  <button [disabled]="!nickname" class="btn btn-primary" (click)="createNickname()">Erstellen</button>
+</div>

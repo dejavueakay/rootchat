@@ -1,0 +1,24 @@
+#fusszeile {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+
+footer {
+    background-color: #00802F;
+ }
+
+ p {
+     color: #FFF;
+     text-align: center;
+ }
+
+ #gruen {
+     background: #00802F;
+ }
+
+ #schwarz {
+     background: rgb(160, 160, 160);
+ }
+
+

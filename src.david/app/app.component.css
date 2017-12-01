@@ -1,0 +1,39 @@
+#UsernameEingabe {
+    margin-top: 20px;
+}
+
+
+
+* {
+    font-family: Rubik;
+   }
+
+.btn-primary {
+    background-color: #00802F;
+    border-color: #00802F;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-primary:active {
+    background-color: #00802F;
+    border-color: #00802F;
+    font-size: 18px;
+}
+
+.btn-primary:disabled {
+    background-color: #00802F;
+    border-color: #00802F;
+    font-size: 18px;
+}
+
+.form-control {
+    font-size: 18px;
+
+}
+
+p {
+    color: #000;
+    font-size: 18px;
+}
