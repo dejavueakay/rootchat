@@ -47,7 +47,7 @@ alert('Gib einen Nickname ein!');
 	
 	} else {
 					
-		this.formattedmessage = 'Am ' + new Date().toLocaleDateString() + ' um ' + new Date().toLocaleTimeString() + ' schrieb ' + this.nickname + ':\n\n' + message + '\n';	// Nachricht formatieren mit nick und timestamp
+		this.formattedmessage = 'Am ' + new Date().toLocaleDateString() + ' um ' + new Date().toLocaleTimeString() + ' schrieb <b>' + this.nickname + ':</b><br><br>' + message + '<br><br>';	// Nachricht formatieren mit nick und timestamp
 		this.messageHistory += this.formattedmessage;			// Eigene Nachricht zur messageHistory hinzufuegen
 		this.chatService.sendTrans(this.formattedmessage);		// Nachricht an Server schicken
 		this.chatMessage.message = ''; 					// Eingabefeld resetten

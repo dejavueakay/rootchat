@@ -10,6 +10,10 @@ app.get('*', function(req, res, next) {
   res.sendFile("index.html");
 });
 
+app.get('/delete', function(req, res, next) { 			// Funktion eingebaut, um die History zu loeschen indem man 127.0.0.1:8090/delete aufruft
+    history = '';
+  res.sendFile("delete.html");
+});
 
 var server = http.createServer(app);
 var io = require('socket.io')(server);

@@ -1,6 +1,6 @@
 # rootchat
 
-This project was generated and developed with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5, [Bootstrap](https://github.com/twbs/bootstrap) and [socketio](https://github.com/socketio/socket.io).
+This project was generated and developed with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5, [Bootstrap](https://github.com/twbs/bootstrap) and [socketio](https://github.com/socketio/socket.io). It is a realtime chat application that uses socket.io as a server (server.js).
 
 ## Development server
 

@@ -20,7 +20,7 @@ import {
   FormBuilder
 } from '@angular/forms';
 
-const config: SocketIoConfig = { url: 'http://senntee.ch:8080', options: {} };
+const config: SocketIoConfig = { url: 'http://rootchat.cf:8080', options: {} };
 
 
 @NgModule({

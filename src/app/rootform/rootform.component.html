@@ -1,7 +1,13 @@
 	<div class="container">
   		<h3>Nachrichten</h3>
-  		<textarea rows="20" class="form-control" readonly ngx-auto-scroll [innerHTML]="messageHistory"></textarea>
+
+		<div class="divTextArea form-control" ngx-auto-scroll>
+			<div class="divTextAreaInner" [innerHTML]="messageHistory">
+			</div>
+		</div>
 	</div>
+
+	
 	
 
  
