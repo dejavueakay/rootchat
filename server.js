@@ -6,7 +6,7 @@ var history = '';
 
 app.use(express.static(path.join(__dirname)));
 
-app.get('*', function(req, res, next) {
+app.get('/', function(req, res, next) {
   res.sendFile("index.html");
 });
 
