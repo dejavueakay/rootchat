@@ -1,14 +1,15 @@
 .divTextArea {
 	padding: 2px;
 	width: 100%;
-	height: 350px;
+	height: 300px;
 	border: solid 1px rgb(185, 185, 185);
 	overflow: scroll;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	background-color: rgb(238, 238, 238);
+	background-image: url("http://senntee.ch/back.jpg");
 }
 
 .divTextAreaInner {
-	margin-left: 10px;
+	margin-left: 20px;
 }

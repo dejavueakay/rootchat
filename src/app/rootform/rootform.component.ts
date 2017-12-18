@@ -17,8 +17,9 @@ export class RootformComponent implements OnInit {
 	chatMessage = new chatMessage('');
 	messageHistory: string = '';
 	nickname: string = '';
+	hellochat: string = '';
 	formattedmessage: string = '';
-
+	nouser: number = 0;
 constructor(private chatService: TranssocketService, private cookieService: CookieService) { } 		// Hier wird Socket initiiert
 
 
@@ -31,10 +32,22 @@ this.chatService							// Hier lauschen wir auf Nachrichten des Servers
           this.messageHistory += msg;
         });
 
+this.chatService
+	.getTransNO()
+	.subscribe(no => {
+	this.nouser = no;
+	});
+
 this.nickname = this.cookieService.get('nickname');
 
-}
+if (this.nickname) {
 
+	this.hellochat = '<center><b>' + this.nickname + '</b> trat dem rootchat bei.</center> <br><br>';
+	this.chatService.sendTrans(this.hellochat);
+
+	}
+
+}
 public addMessage(message: string): void {
 
 if (!this.nickname) {
@@ -47,7 +60,7 @@ alert('Gib einen Nickname ein!');
 	
 	} else {
 					
-		this.formattedmessage = 'Am ' + new Date().toLocaleDateString() + ' um ' + new Date().toLocaleTimeString() + ' schrieb <b>' + this.nickname + ':</b><br><br>' + message + '<br><br>';	// Nachricht formatieren mit nick und timestamp
+		this.formattedmessage = 'Am ' + new Date().toLocaleDateString('de-DE') + ' um ' + new Date().toLocaleTimeString('de-DE') + ' schrieb <b>' + this.nickname + ':</b><br><br>' + message + '<br><br>';	// Nachricht formatieren mit nick und timestamp
 		this.messageHistory += this.formattedmessage;			// Eigene Nachricht zur messageHistory hinzufuegen
 		this.chatService.sendTrans(this.formattedmessage);		// Nachricht an Server schicken
 		this.chatMessage.message = ''; 					// Eingabefeld resetten

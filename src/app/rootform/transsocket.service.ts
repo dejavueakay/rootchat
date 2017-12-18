@@ -14,9 +14,18 @@ export class TranssocketService {
             .map(data => data.msg);
     }
 
+    getTransNO() {
+	return this.socket
+		.fromEvent<any>("no")
+		.map(data => data.no);
+    }
+
     sendTrans(msg: string) {
         this.socket
             .emit("msg", msg);
     }
+
+
+
 }
   
